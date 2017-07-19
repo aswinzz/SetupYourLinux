@@ -1,39 +1,81 @@
 #!/usr/bin/env bash
-echo -n "Welcome!!"
-echo -n "lets get started.."
-echo -n "....installing git...."
+echo "Welcome!!"
+echo "lets get started.."
+echo "....installing git...."
 sudo apt-get install git
-echo -n "git successfully installed"
-echo -n "....installing VLC...."
+if [ $? != 0 ]; then                   
+   echo "Unsuccessful" 
+else
+   echo "git successfully installed"
+fi
+
+
+echo "....installing VLC...."
 sudo add-apt-repository ppa:videolan/master-daily
 sudo apt install vlc
-echo -n "VLC successfully installed"
-echo -n "....installing Python...."
+if [ $? != 0 ]; then                   
+   echo "Unsuccessful" 
+else
+   echo "VLC successfully installed"
+fi
+
+
+echo "....installing Python...."
 sudo add-apt-repository ppa:fkrull/deadsnakes
 sudo apt-get update
 sudo apt-get install python2.7
-echo -n "Python successfully installed"
-echo -n "....installing Chrome...."
+if [ $? != 0 ]; then                   
+   echo "Unsuccessful" 
+else
+   echo "Python successfully installed"
+fi
+
+
+echo "....installing Chrome...."
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo apt-get update 
 sudo apt-get install google-chrome-stable
-echo -n "chrome successfully installed"
-echo -n "....installing sublime text...."
+if [ $? != 0 ]; then                   
+   echo "Unsuccessful" 
+else
+   echo "chrome successfully installed"
+fi
+
+
+
+echo "....installing sublime text...."
 sudo add-apt-repository ppa:webupd8team/sublime-text-3
 sudo apt-get update
 sudo apt-get install sublime-text-installer
-echo -n "sublime text successfully installed"
-echo -n "....installing vim...."
+if [ $? != 0 ]; then                   
+   echo "Unsuccessful" 
+else
+   echo "sublime text successfully installed"
+fi
+
+
+echo "....installing vim...."
 sudo apt-get install vim
-echo -n "vim successfully installed"
-echo -n "....installing Oh my zsh and powerline...."
+if [ $? != 0 ]; then                   
+   echo "Unsuccessful" 
+else
+   echo "vim successfully installed"
+fi
+
+echo "....installing Oh my zsh and powerline...."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.zshrc ~/.zshrc.orig
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 chsh -s /bin/zsh
 sudo apt-get install python-pip
 pip install --user git+git://github.com/Lokaltog/powerline
-echo -n "zsh and powerline successfully installed"
-echo -n "Thank You For Using This Script!!"
+if [ $? != 0 ]; then                   
+   echo "Unsuccessful" 
+else
+   echo "zsh and powerline successfully installed"
+fi
+
+
+echo "Thank You For Using This Script!!"
 
