@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+echo -n "Welcome!!"
+echo -n "lets get started.."
+echo -n "....installing git...."
+sudo apt-get install git
+echo -n "git successfully installed"
+echo -n "....installing VLC...."
+sudo add-apt-repository ppa:videolan/master-daily
+sudo apt install vlc
+echo -n "VLC successfully installed"
+echo -n "....installing Python...."
+sudo add-apt-repository ppa:fkrull/deadsnakes
+sudo apt-get update
+sudo apt-get install python2.7
+echo -n "Python successfully installed"
+echo -n "....installing Chrome...."
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+sudo apt-get update 
+sudo apt-get install google-chrome-stable
+echo -n "chrome successfully installed"
+echo -n "....installing sublime text...."
+sudo add-apt-repository ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install sublime-text-installer
+echo -n "sublime text successfully installed"
+echo -n "....installing vim...."
+sudo apt-get install vim
+echo -n "vim successfully installed"
+echo -n "....installing Oh my zsh and powerline...."
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.zshrc ~/.zshrc.orig
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+chsh -s /bin/zsh
+sudo apt-get install python-pip
+pip install --user git+git://github.com/Lokaltog/powerline
+echo -n "zsh and powerline successfully installed"
+echo -n "Thank You For Using This Script!!"
+
